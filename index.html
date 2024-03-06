@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Slot Machine</title>
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <div class="slot-machine">
+          <h2>Slot Machine</h2>
+          <div class="betweenContent">
+            <div class="rows">
+              <div class="row1 row">
+                <div class="reel" id="reel1"></div>
+                <div class="reel" id="reel2"></div>
+                <div class="reel" id="reel3"></div>
+              </div>
+              <div class="row2 row">
+                <div class="reel" id="reel4"></div>
+                <div class="reel" id="reel5"></div>
+                <div class="reel" id="reel6"></div>
+              </div>
+              <div class="row3 row">
+                <div class="reel" id="reel7"></div>
+                <div class="reel" id="reel8"></div>
+                <div class="reel" id="reel9"></div>
+              </div>
+            </div>
+            <div class="buttonSide">
+              <button id="spinButton">
+                <img src="./images/thumbnail.png" alt="tryAgain" />
+              </button>
+              <div class="balance">
+                <span id="balance">1000</span>
+              </div>
+              <div id="addBalanceBlock">
+                <button id="decrementBalanceButton">-</button>
+                <input type="number" id="amount" />
+                <button id="incrementBalanceButton">+</button>
+              </div>
+              <button id="addBalanceButton">Add</div> 
+            </div>
+          </div>
+          <div class="bottomSide">
+            <span id="winOrLose">Place your bet</span>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  font-family: "Consolas", sans-serif;
+}
+
+a,
+input,
+button {
+  cursor: pointer;
+}
+
+.main {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+}
+
+.container {
+  margin: 0 auto;
+  width: 800px;
+  max-width: 900px;
+  padding: 0 10px;
+}
+
+.slot-machine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  margin: 10px auto 35px;
+  width: 700px;
+  max-width: 100%;
+  gap: 25px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+}
+
+.slot-machine h2 {
+  margin: 30px auto 15px;
+  display: flex;
+  flex: 1 0 100%;
+  font-size: 30px;
+  text-decoration-line: underline;
+  color: rgb(10, 78, 205);
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.betweenContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  gap: 10px;
+  width: 650px;
+  max-width: 700px;
+}
+
+.rows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+  flex-flow: column wrap;
+  max-width: 90%;
+}
+
+.balance {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  font-size: 20px;
+  max-width: 135px;
+  color: #080ce5;
+}
+
+#balance {
+    text-overflow: ellipsis;
+    width: 100px;
+    max-width: 100px;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    min-width: 100px;
+    cursor: pointer;
+}
+
+#balance:hover {
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.buttonSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  flex-flow: column nowrap;
+  gap: 15px;
+}
+
+.buttonSide #spinButton:not(:active):hover {
+  border: 3px dashed #000;
+  transition: border linear 0.4s;
+  animation: moveTopAndBottom 2s linear infinite;
+}
+
+.buttonSide #spinButton {
+  position: relative;
+  top: -3px;
+  font-size: 1rem;
+  background: #ccc;
+  padding: 0;
+  width: 80px;
+  border: 3px solid #605b5b;
+  height: 80px;
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+.buttonSide #spinButton:active {
+  position: relative;
+  content: "";
+  top: 1px;
+  transition: top 0.4s;
+}
+
+.reel {
+  display: flex;
+  font-size: 2rem;
+  width: 140px;
+  height: 140px;
+  border: 3px solid #000;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  background: rgb(255, 240, 0);
+  background: linear-gradient(
+    134deg,
+    rgba(255, 240, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 35%,
+    rgba(130, 218, 236, 1) 100%
+  );
+}
+
+.bottomSide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  height: 60px;
+}
+
+.bottomSide #winOrLose {
+  width: 100%;
+  margin: 0 auto;
+  max-width: max-content;
+  min-width: max-content;
+  border-radius: 12px;
+  padding: 10px 12px;
+  color: #00f;
+  font-size: 20px;
+  font-weight: 700;
+  transform: scale(1);
+  transition: tranaform 0.4s linear;
+  animation: scaleUp 2s linear infinite;
+}
+
+.buttonSide #spinButton:hover img {
+  overflow: hidden;
+  transform: rotate(0);
+  transition: transform 0.4s linear;
+  animation-play-state: paused;
+}
+
+.buttonSide #spinButton img {
+  width: 60px;
+  height: 60px;
+  object-position: center;
+  animation: rotateImg 4s linear infinite;
+  object-fit: cover;
+  mix-blend-mode: darken;
+  transition: transform 0.4s linear;
+}
+#addBalanceBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  flex-flow: row nowrap;
+  width: 100%;
+  max-width: 100px;
+  min-width: 50px;
+  margin: 0 auto;
+}
+#addBalanceBlock > button {
+  position: relative;
+  content: "";
+  top: 0;
+  left: 0;
+  overflow: visible;
+  padding: 0 9px;
+  font-size: 20px;
+  border-radius: 50%;
+  font-weight: 900;
+  margin: 0;
+  border: 2px solid #000;
+}
+
+#decrementBalanceButton {
+  background-color: red;
+}
+
+#addBalanceButton:active,
+#addBalanceBlock > button:active {
+  position: relative;
+  content: "";
+  top: 3px;
+  left: 0;
+  overflow: visible;
+}
+
+#amount {
+  width: 50px;
+  max-width: 50px;
+  border: 2px solid #000;
+  outline: 0;
+  color: green;
+  padding: 3px 6px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-align: center;
+}
+
+#incrementBalanceButton {
+  background-color: lawngreen;
+}
+
+#addBalanceButton {
+  position: relative;
+  content: "";
+  top: 0;
+  left: 0;
+  overflow: visible;
+  background-color: lightskyblue;
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 5px 8px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  border-radius: 12px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+}
+
+@keyframes rotateImg {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleUp {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+@keyframes moveTopAndBottom {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-3px);
+  }
+  75% {
+    transform: translateY(3px);
+  }
+}
